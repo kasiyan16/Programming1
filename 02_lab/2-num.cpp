@@ -6,15 +6,15 @@ int main(){
 	float coeff1, coeff2, coeff3;
 	cout << "First mark of student" << endl;
 	cin >> mark1;
-	cout << "Coefficient for first estimate" << endl;
+	cout << "Coefficient for first exam" << endl;
 	cin >> coeff1;
 	cout << "Second mark of student" << endl;
 	cin >> mark2;
-	cout << "Coefficient for second estimate" << endl; 
+	cout << "Coefficient for second exam" << endl; 
 	cin >> coeff2;
 	cout << "Third mark of student" << endl;
 	cin >> mark3;
-	cout << "Coefficient for third estimate" << endl;
+	cout << "Coefficient for third exam" << endl;
 	cin >> coeff3;
 	float sum = coeff1 + coeff2 + coeff3; //сумма коеффіціентів
 	float result = (mark1*coeff1 + mark2*coeff2 + mark3*coeff3) / sum; //середня вагова оцінка
