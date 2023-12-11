@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/workspaces/programming/12_lab",
-      "program": "/workspaces/programming/12_lab/build/Debug/outDebug",
+      "cwd": "/workspaces/programming/13_lab",
+      "program": "/workspaces/programming/13_lab/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
