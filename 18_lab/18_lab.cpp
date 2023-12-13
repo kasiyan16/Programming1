@@ -1,39 +1,46 @@
 #include <iostream>
 #include <string>
 
-// Структура для опису автомобілів
-struct Car {
-    std::string model;
-    int year;
-    double price;
-    std::string color;
+// Структура для представлення інформації про країну
+struct Country {
+    std::string name;
+    int population;
+    double area;
 };
 
+// Функція для виведення інформації про країну
+void printCountry(const Country& country) {
+    std::cout << "Назва країни: " << country.name << std::endl;
+    std::cout << "Населення: " << country.population << " осіб" << std::endl;
+    std::cout << "Площа: " << country.area << " км^2" << std::endl;
+    std::cout << "-----------------------------" << std::endl;
+}
+
 int main() {
-    const int arraySize = 6; // Розмір масиву
+    setlocale(LC_ALL, "UKR");
 
-    // Створення масиву з шести елементів структури Car
-    Car cars[arraySize] = {
-        {"Toyota Camry", 2000, 5000.0, "Blue"},
-        {"Honda Accord", 2005, 7000.0, "Red"},
-        {"Ford Mustang", 2001, 6000.0, "Red"},
-        {"Chevrolet Malibu", 2003, 5500.0, "Silver"},
-        {"Nissan Altima", 2008, 8000.0, "Black"},
-        {"BMW 3 Series", 2001, 10000.0, "Red"}
-    };
+    const int arraySize = 6; // Кількість країн
+    Country countries[arraySize]; // Масив об'єктів типу Country
 
-    // Виведення інформації про всі автомобілі
-    std::cout << "Information about all cars:" << std::endl;
+    // Ініціалізація даними
+    countries[0] = { "Україна", 44000000, 603500 };
+    countries[1] = { "США", 331000000, 9834000 };
+    countries[2] = { "Китай", 1440000000, 9597000 };
+    countries[3] = { "Індія", 1393000000, 3287000 };
+    countries[4] = { "Бразилія", 209000000, 8516000 };
+    countries[5] = { "Канада", 104000000, 1002450 };
+
+    // Виведення інформації про всі країни
+    std::cout << "Інформація про всі країни:" << std::endl;
     for (int i = 0; i < arraySize; ++i) {
-        std::cout << "Model: " << cars[i].model << ", Year: " << cars[i].year
-                  << ", Price: " << cars[i].price << ", Color: " << cars[i].color << std::endl;
+        printCountry(countries[i]);
     }
 
-    // Пошук і виведення моделей червоного кольору, випущених в 2001 році
-    std::cout << "\nRed cars released in 2001:" << std::endl;
+    // Виведення країн з населенням більше одного мільярда
+    std::cout << "Країни з населенням більше одного мільярда:" << std::endl;
     for (int i = 0; i < arraySize; ++i) {
-        if (cars[i].color == "Red" && cars[i].year == 2001) {
-            std::cout << cars[i].model << std::endl;
+        if (countries[i].population > 1000000000) {
+            printCountry(countries[i]);
         }
     }
 
