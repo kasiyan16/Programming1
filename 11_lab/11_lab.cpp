@@ -1,48 +1,51 @@
 #include <iostream>
-#include <cmath>
+#include <string>
 
 using namespace std;
 
+// Function to get the full name of a U.S. state based on its abbreviation
+string getStateName(const string& abbreviation) {
+    switch (abbreviation[0]) {
+    case 'A':
+        if (abbreviation == "AL") return "Alabama";
+        if (abbreviation == "AK") return "Alaska";
+        if (abbreviation == "AZ") return "Arizona";
+        if (abbreviation == "AR") return "Arkansas";
+        break;
+    case 'C':
+        if (abbreviation == "CA") return "California";
+        if (abbreviation == "CO") return "Colorado";
+        if (abbreviation == "CT") return "Connecticut";
+        break;
+    // Add more cases for other states as needed
+    default:
+        break;
+    }
+
+    return "";  // Return an empty string if the abbreviation is not recognized
+}
+
 int main() {
-    int variant;
-    char stateAbbreviation;
+    setlocale(LC_ALL, "UKR");  // Set the locale to Ukrainian
+    string abbreviation;
 
-    cout << "Enter variant (1-50): ";
-    cin >> variant;
+    while (true) {
+        cout << "Введіть скорочену назву штату (або 'exit' для виходу): ";
+        cin >> abbreviation;
 
-    cout << "Enter state abbreviation (two letters): ";
-    cin >> stateAbbreviation;
+        if (abbreviation == "exit") {
+            break;
+        }
 
-    double result, taxRate;
+        string stateName = getStateName(abbreviation);
 
-    if (stateAbbreviation == 'A') goto typeA;
-    if (stateAbbreviation == 'B') goto typeB;
-    if (stateAbbreviation == 'C') goto typeC;
-
-    cout << "Invalid state abbreviation." << endl;
-    return 1;
-
-typeA:
-    result = 100 * fabs(sin(variant + 2) + 50);
-    taxRate = 0.10;
-    goto printResults;
-
-typeB:
-    result = 150 * fabs(sin(variant + 3) + 100);
-    taxRate = 0.15;
-    goto printResults;
-
-typeC:
-    result = 200 * fabs(sin(variant + 4) + 135);
-    taxRate = 0.20;
-
-printResults:
-    double tax = result * taxRate;
-    double netPay = result - tax;
-
-    cout << "Amount: " << result << endl;
-    cout << "Tax amount: " << tax << endl;
-    cout << "Amount after tax: " << netPay << endl;
+        if (!stateName.empty()) {
+            cout << "Повна назва штату: " << stateName << endl;
+        }
+        else {
+            cout << "Помилка: Невідома або неправильна скорочена назва. Спробуйте ще раз." << endl;
+        }
+    }
 
     return 0;
 }
