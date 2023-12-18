@@ -1,31 +1,17 @@
-Введіть кількість членів команди: 1
-Введіть кількість пасажирів: 2
-Введіть вагу туалету: 160
-Введіть вагу багажу: 525
-Введіть кількість палива в галонах: 40
-Загальна вага: 11350 фунтів
-Центр ваги: 608.33 дюймів від носу літака
+Enter the number of crew members:
+Enter the number of passengers:
+Enter the weight, in pounds, of the closet rounded to the nearest whole number:
+Enter the weight, in pounds, of the baggage compartment rounded to the nearest whole number:
+Enter the number of gallons of fuel loaded, rounded to the nearest whole number:
 
-Введіть кількість членів команди: 2
-Введіть кількість пасажирів: 3
-Введіть вагу туалету: 160
-Введіть вагу багажу: 525
-Введіть кількість палива в галонах: 120
-Загальна вага: 12226 фунтів
-Центр ваги: 313.99 дюймів від носу літака
-
-Введіть кількість членів команди: 2
-Введіть кількість пасажирів: 5
-Введіть вагу туалету: 160
-Введіть вагу багажу: 525
-Введіть кількість палива в галонах: 420
-Загальна вага: 14576 фунтів
-Центр ваги: 312.46 дюймів від носу літака
-
-Введіть кількість членів команди: 2
-Введіть кількість пасажирів: 7
-Введіть вагу туалету: 160
-Введіть вагу багажу: 525
-Введіть кількість палива в галонах: 540
-Загальна вага: 15720 фунтів
-Центр ваги: 315.18 дюймів від носу літака
+  | Data input as entered:                |
+  |---------------------------------------|
+  | Crew:               |       0 persons |
+  | Passengers:         |425157352 persons|
+  | Weight of clothing: |    32689 pounds |
+  | Baggage weight:     |-372335136 pounds |
+  | Fuel:               |   21899 gallons |
+  |---------------------------------------|
+The total weight is 71904600064.00 pounds.
+The center of gravity is located -2.00 inches from the front of the aircraft:
+Warning: The center of gravity is approaching a critical limit. Exercise caution!
