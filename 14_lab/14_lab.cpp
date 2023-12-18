@@ -1,38 +1,43 @@
 #include <iostream>
+#include <cmath>
+#include <limits>
+#include <algorithm>
+..................
+using namespace std;
 
 int main() {
-    const int numYears = 11; // Кількість років
-    int year = 2000; // Початковий рік
-    int profit[11]; // Масив прибутку на кожний рік
+    const int variantNumber = 9;
+    double results[11];
 
-    // Заповнення масиву прибутку за кожен рік
-    for (int i = 0; i < numYears; i++) {
-        profit[i] = 100 * i + 9 * i * i;
+    // Fill the array with results for each year
+    for (int k = 0; k <= 10; ++k) {
+        double x = k;
+        double result = cos(pow(x, 2) + 1) - fabs(sin(2 * x) - 5.76);
+        results[k] = result;
     }
 
-    // Виведення таблиці прибутку
-    std::cout << "Year\tProfit\n";
-    for (int i = 0; i < numYears; i++) {
-        std::cout << year++ << "\t" << profit[i] << std::endl;
+    // Display the table
+    cout << "+----------------------+ " << endl;
+    cout << "| Year | Result         | " << endl;
+    cout << "+----------------------+ " << endl;
+    for (int i = 0; i < 11; ++i) {
+        cout << "| " << 2000 + i << " | " << results[i] << "     | " << endl;
     }
+    cout << "+----------------------+ " << endl;
 
-    // Знайдення суми збитків та найбільшого прибутку
-    int sumOfLosses = 0;
-    int maxProfit = profit[0];
+    // Find the largest result
+    double maxResult = -numeric_limits<double>::infinity();
+    int yearWithMaxResult = 2000;
 
-    for (int i = 0; i < numYears; i++) {
-        if (profit[i] < 0) {
-            sumOfLosses += profit[i];
+    for (int i = 0; i < 11; ++i) {
+        if (results[i] > maxResult) {
+            maxResult = results[i];
+            yearWithMaxResult = 2000 + i;
         }
-
-        if (profit[i] > maxProfit) {
-            maxProfit = profit[i];
-        }
     }
 
-    // Виведення результатів
-    std::cout << "Sum of Losses: " << sumOfLosses << std::endl;
-    std::cout << "Max Profit: " << maxProfit << std::endl;
+    // Display results
+    cout << "The largest result is: " << maxResult << " in year " << yearWithMaxResult << endl;
 
     return 0;
 }
