@@ -4,61 +4,52 @@
 using namespace std;
 
 int main() {
-    // Отримання номера варіанта
-    int variant = 9; // Ваш номер варіанту
-    const int size = 10; // Розмір масиву
-
-    // Створення динамічного масиву
-    int* array = new int[size];
-
-    // Ініціалізація масиву за умовою
-    for (int i = 0; i < size; i++) {
-        array[i] = variant + 10 * (i + 1);
+    const int variant = 9;
+    const int size = 10;
+    double results[size]; // створити масив
+    // розрахувати масив
+    for (int k = 1; k <= size; ++k) {
+        double x = k;
+        results[k - 1] = cos(pow(x, 2) + 1) - fabs(sin(2 * x) - 5.76);
     }
 
-    // Виведення початкового масиву
-    cout << "Початковий масив:" << endl;
-    for (int i = 0; i < size; i++) {
-        cout << array[i] << " ";
+    // вивести елементи масиву
+    cout << "Еlements: ";
+    for (int i = 0; i < size; ++i) {
+        cout << results[i] << " ";
     }
     cout << endl;
 
-    // Заміна другого від'ємного елемента із третім додатнім
-    int countNegative = 0;
-    int countPositive = 0;
-    int indexNegative = -1;
-    int indexPositive = -1;
+    // Другий від'ємний елемент поміняти місцями із третім додатнім
+    int secondNegativeIndex = -1;
+    int thirdPositiveIndex = -1;
 
-    for (int i = 0; i < size; i++) {
-        if (array[i] < 0) {
-            countNegative++;
-            if (countNegative == 2) {
-                indexNegative = i;
-            }
-        } else if (array[i] > 0) {
-            countPositive++;
-            if (countPositive == 3) {
-                indexPositive = i;
+    for (int i = 0; i < size; ++i) {
+        if (results[i] < 0) {
+            if (secondNegativeIndex == -1) {
+                secondNegativeIndex = i;
+            } else if (thirdPositiveIndex == -1) {
+                thirdPositiveIndex = i;
+                break;
             }
         }
     }
 
-    // Обмін значень
-    if (indexNegative != -1 && indexPositive != -1) {
-        int temp = array[indexNegative];
-        array[indexNegative] = array[indexPositive];
-        array[indexPositive] = temp;
-    }
+    // Обмін значень, якщо індекси знайдено
+    if (secondNegativeIndex != -1 && thirdPositiveIndex != -1) {
+        double temp = results[secondNegativeIndex];
+        results[secondNegativeIndex] = results[thirdPositiveIndex];
+        results[thirdPositiveIndex] = temp;
 
-    // Виведення відредагованого масиву
-    cout << "Масив після обміну:" << endl;
-    for (int i = 0; i < size; i++) {
-        cout << array[i] << " ";
+        // вивести змінений масив
+        cout << "Modified Elements: ";
+        for (int i = 0; i < size; ++i) {
+            cout << results[i] << " ";
+        }
+        cout << endl;
+    } else {
+        cout << "Insufficient data to perform the swap." << endl;
     }
-    cout << endl;
-
-    // Звільнення пам'яті, виділеної для динамічного масиву
-    delete[] array;
 
     return 0;
 }
