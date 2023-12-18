@@ -6,7 +6,7 @@ using namespace std;
 class Rational {
 public:
     Rational() : numerator(0), denominator(1) {
-        // 
+        // Реалізовано конструктор за замовчуванням
     }
     Rational(int numerator, int denominator) {
         int gcd_value = gcd(abs(numerator), abs(denominator));
